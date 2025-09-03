@@ -18,14 +18,15 @@
         <div id="content">
             <h4>The Weather for <%= content.city_name %></h4>
             <ul>
+
+                <li><%= content.desc %></li>
+                <li><img src="<%= content.icon_url %>" alt="weather_icon"></li>
                 <li>Temp: <%= content.temp %></li>
                 <li>Feels like:<%= content.feelsLike %></li>
                 <li>Wind: <%= content.windSpeed %></li>
             </ul>
         </div>
         <% } %>
-        
-
     </form>
     </div>
 </body>

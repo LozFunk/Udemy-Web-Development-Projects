@@ -24,6 +24,10 @@ app.post("/get-weather", async (req, res) => {
         feelsLike: result.data.main.feels_like,
         windSpeed: result.data.wind.speed,
         city_name: result.data.name,
+        desc: result.data.weather[0].description,
+        icon: result.data.weather[0].icon,
+        icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@2x.png`
+
     } });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
