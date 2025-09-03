@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 const API_KEY = "64c430c1bfa5a320298c014b1d1f4b0a"
 const API_URL = `https://api.openweathermap.org/data/2.5/`;
 
+function capitalizeFirstLetter(val) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
 
 app.get("/",(req,res) =>{
     res.render("index.ejs",{content:null});
@@ -24,7 +27,7 @@ app.post("/get-weather", async (req, res) => {
         feelsLike: result.data.main.feels_like,
         windSpeed: result.data.wind.speed,
         city_name: result.data.name,
-        desc: result.data.weather[0].description,
+        desc: capitalizeFirstLetter(result.data.weather[0].description),
         icon: result.data.weather[0].icon,
         icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@2x.png`
 

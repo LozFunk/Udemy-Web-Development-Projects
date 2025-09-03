@@ -7,26 +7,27 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="center">
-    <h1>The Weather now</h1>
-
+    <div class="container">
     <form action="/get-weather" method="post">
-        <input type="text" id="name" name="name" placeholder="Enter a City" >
-        <input type="submit" value="Search">
+        <div class="input-container">
+            <input class="input-city" type="text" id="name" name="name" placeholder="Enter a City" required>
+            <input class="button" type="submit" value="Search">
+        </div>
 
         <% if (content) { %>
-        <div id="content">
-            <h4>The Weather for <%= content.city_name %></h4>
-            <ul>
-
-                <li><%= content.desc %></li>
-                <li><img src="<%= content.icon_url %>" alt="weather_icon"></li>
-                <li>Temp: <%= content.temp %></li>
-                <li>Feels like:<%= content.feelsLike %></li>
-                <li>Wind: <%= content.windSpeed %></li>
-            </ul>
+        <div id="content" class="">
+            <div class="city-temp">
+                <div class="city"><%= content.city_name %></div>
+                <div class="temp"><%= Math.round(content.temp) %>°</div>
+            </div>
+            <div class="text-align desc"><%= content.desc %></div>
+            <div class="text-align"><img class="icon" src="<%= content.icon_url %>" alt="weather_icon"></div>
+                <div class="text-align feels-like">Feels like: <%= Math.round(content.feelsLike) %>°</div>
+                <div class="wind">Wind: <%= Math.round(content.windSpeed) %> m/s</div>
         </div>
-        <% } %>
+        <% } else {%>
+            <p>Enter a city</p>
+            <% } %>
     </form>
     </div>
 </body>

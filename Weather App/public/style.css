@@ -1,4 +1,72 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    color: aliceblue;
+}
+
 body{
     display: flex;
     justify-content: center;
+}
+
+.container{
+    background-image: linear-gradient(rgb(55, 170, 185),rgb(141, 87, 132));
+    display: flex;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.city-temp{
+    display: flex;
+    justify-content:space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.city{
+    align-self: flex-start;
+}
+
+.temp{
+    align-self: flex-start;
+    font-size: 2rem;
+}
+
+.icon{
+    width: 200px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-city{
+    width: 100%;
+}
+
+.input-container{
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.text-align{
+    text-align: center;
+}
+
+.desc{
+    font-size: 0.8rem;
+}
+
+.feels-like{
+    font-size: 0.8rem;
+    margin-bottom: 50px;
+}
+
+.wind{
+    text-align: end;
+    font-size: 0.6rem;
 }
