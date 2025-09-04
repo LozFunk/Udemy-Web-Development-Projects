@@ -29,18 +29,28 @@ app.post("/get-weather", async (req, res) => {
         city_name: result.data.name,
         desc: capitalizeFirstLetter(result.data.weather[0].description),
         icon: result.data.weather[0].icon,
-        icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@2x.png`
+        icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@4x.png`
 
     } });
   } catch (error) {
-    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+    let message = "An error occurred while fetching weather data.";
+
+    if (error.response) {
+      if (error.response.status === 404) {
+        message = `City "${city_name}" not found. Please try again.`;
+      } else {
+        message = `Error ${error.response.status}: ${error.response.data.message}`;
+      }
+    } else if (error.request) {
+      message = "No response received from the weather service.";
+    } else {
+      message = "Request setup error: " + error.message;
+    }
+
+    res.render("index.ejs", { content: { error: message } });
   }
 });
 
-
-
-
-
 app.listen(port, ()=>{
     console.log(`Server is running on Port:${port}`)
-})
+});
