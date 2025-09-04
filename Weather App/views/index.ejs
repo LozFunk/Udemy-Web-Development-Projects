@@ -17,13 +17,15 @@
             </button>
         </div>
     </form>
+    <% const d = new Date() %>
     
 <% if (content && content.error) { %>
       <p class="error"><%= content.error %></p>
     <% } else if (content) { %>
       <div id="content" class="content">
         <div class="city-temp">
-          <div class="city"><%= content.city_name %></div>
+          <div class="city"><%= content.city_name %><pre class="country"><%= content.country %></pre></div>
+          
           <div class="temp"><%= Math.round(content.temp) %>°</div>
         </div>
         <div class="text-align desc"><%= content.desc %></div>
@@ -33,7 +35,12 @@
         <div class="text-align feels-like">
           Feels like: <%= Math.round(content.feelsLike) %>°
         </div>
+        <div class="min-max">
+        <div>Min: <%= Math.round(content.temp_min) %>°</div>
+        <div>Max: <%= Math.round(content.temp_max) %>°</div>
+        </div>
         <div class="wind">Wind: <%= Math.round(content.windSpeed) %> m/s</div>
+        <div class="wind">Humidity: <%= Math.round(content.humidity) %>%</div>
       </div>
     <% } %>
     </div>

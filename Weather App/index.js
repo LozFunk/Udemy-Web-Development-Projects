@@ -25,13 +25,18 @@ app.post("/get-weather", async (req, res) => {
     res.render("index.ejs", { content:{
         temp : result.data.main.temp,
         feelsLike: result.data.main.feels_like,
+        humidity: result.data.main.humidity,
+        temp_min: result.data.main.temp_min,
+        temp_max: result.data.main.temp_max,
         windSpeed: result.data.wind.speed,
         city_name: result.data.name,
         desc: capitalizeFirstLetter(result.data.weather[0].description),
         icon: result.data.weather[0].icon,
-        icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@4x.png`
-
-    } });
+        icon_url: `http://openweathermap.org/img/wn/${result.data.weather[0].icon}@4x.png`,
+        country: result.data.sys.country,
+        time: result.data.timezone,
+    } 
+  });
   } catch (error) {
     let message = "An error occurred while fetching weather data.";
 

@@ -60,6 +60,12 @@ form{
     border-radius: 5px 0 0 5px;
 }
 
+.country{
+    margin: 0px;
+    font-size: 0.6rem;
+    color: rgb(218, 218, 218);
+}
+
 .button{
     background:rgb(141, 87, 132);
     width: 50px;
@@ -93,10 +99,22 @@ form{
 
 .feels-like{
     font-size: 0.8rem;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    color: rgb(218, 218, 218);
 }
 
 .wind{
     text-align: end;
     font-size: 0.6rem;
+    color: rgb(218, 218, 218);
+
+}
+
+.min-max{
+    display: flex;
+    gap: 10px;
+    color: rgb(218, 218, 218);
+    font-size: 0.6rem;
+    margin-bottom: 50px;
+    justify-content: center;
 }
