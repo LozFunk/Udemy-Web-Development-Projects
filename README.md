@@ -1,4 +1,3 @@
-# Udemy-Web-Development-Projects
 # Udemy Web Development Projects
 
 This repository contains all my **full-stack web development exercises, challenges, and projects** from my Udemy web development course.  
